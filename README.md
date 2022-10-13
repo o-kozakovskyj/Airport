@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AIRPORT
 -Layout supports all mobile and desktop versions
 
@@ -12,3 +13,6 @@
 - [React](https://https://reactjs.org)
 ### Author
 Kozakovskyj Oleksij
+=======
+# Airport
+>>>>>>> 3c25b466da40fc2df3babf09a3c0754ea47ece4f
