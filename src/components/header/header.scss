@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  background-color: #1eb7ee;
+  color:#fff;
+  &__nav-list {
+    display: flex;
+    list-style: none;
+  }
+  &__nav-list-item {
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0px 35px;
+    cursor: pointer;
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 150px;
+  &__img {
+    display: block;
+    margin-right: 5px;
+    font-size:xx-large;
+  }
+ 
+}
