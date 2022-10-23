@@ -1,0 +1,62 @@
+.flights-table {
+  padding-top: 40px;
+  margin: 0 48px;
+  background-color: #fff;
+  font-size: 18px;
+  line-height: 40px;
+  padding: 16px 10px;
+  border-collapse: collapse;
+  min-height: 100vh;
+  &__header {
+    color: #95989a;
+    display: table-cell;
+    font-size: 16px;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 12px;
+  }
+
+  &__row-item {
+    font-size: 18px;
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  &__row:hover {
+    box-shadow: 1px 1px 3px 3px #55989a;
+  }
+
+  &__terminal-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid;
+    border-radius: 50%;
+    font-weight:900;
+    margin-left: 20px;
+  }
+
+  &__row:nth-child(2n+1) {
+    width: 100%;
+    background-color: rgba(30, 183, 238, 0.1);
+    ;
+  }
+
+  &__logo {
+    display: flex;
+    height: 40px;
+  }
+
+  &__img {
+    height: 100%;
+    width: 95%;
+  }
+  &__not-found {
+    text-align: center;
+   padding-top: 80px;
+    font-size: 48px;
+    color: #95989a;
+  }
+}

@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 # AIRPORT
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13f2320f-b1c7-4eab-b8ef-fed156af79a5/deploy-status)](https://app.netlify.com/sites/airportkyiv/deploys)
 -Layout supports all mobile and desktop versions
 
 ### The tech stack is:
@@ -13,6 +13,4 @@
 - [React](https://https://reactjs.org)
 ### Author
 Kozakovskyj Oleksij
-=======
 # Airport
->>>>>>> 3c25b466da40fc2df3babf09a3c0754ea47ece4f

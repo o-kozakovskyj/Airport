@@ -1,42 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './flightsBoard.scss';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Redirect } from 'react-router-dom';
+import FlightsList from '../FlightsList/FlightsList';
+import Search from '../search/Search';
+import ActionDate from '../date/ActionDate';
+import { dateUrlSelector, typeUrlSelector } from '../../flights.selectors';
 
-const FlightsBoard = ({ zIndexA, zIndexD }) => {
-  console.log(zIndexA, zIndexD);
+const FlightsBoard = ({ dateUrl, typeUrl }) => {
+  console.log(1);
   return (
-    <>
+    <BrowserRouter>
+      <Search />
       <div className="board">
-        <Link className="board__btn board__departures" to="/depatures" style={{ zIndex: zIndexD }}>
+        <Link
+          className="board__btn board__departures"
+          to={`/departure?date=${dateUrl}`}
+          style={{ zIndex: '1' }}
+        >
           <i className="fas fa-plane-departure board__icon"></i>
           <span>Departures</span>
         </Link>
-
-        <Link className="board__btn board__arrivals" to="/arrivals" style={{ zIndex: zIndexA }}>
+        <Link
+          className="board__btn board__arrivals"
+          to={`/arrival?date=${dateUrl}`}
+          style={{ zIndex: '2' }}
+        >
           <i className="fas fa-plane-arrival board__icon"></i>
           <span>Arrivals</span>
         </Link>
       </div>
-      <div className="date-box">
-        <div className="date-box__calendar">
-          <span className="date-box__calendar-date">11/05</span>
-          <input type="date" className="date-box__input" />
-        </div>
-        <div className="date-box__days">
-          <span className="date-box__days-title">11/10</span>
-          <button className="date-box__days-btn">Yesterday</button>
-        </div>
-        <div className="date-box__days">
-          <span className="date-box__days-title">11/10</span>
-          <button className="date-box__days-btn">Today</button>
-        </div>
-        <div className="date-box__days">
-          <span className="date-box__days-title">11/10</span>
-          <button className="date-box__days-btn">Tomorrow</button>
-        </div>
-      </div>
-    </>
+      <ActionDate />
+      <Redirect to={`/${typeUrl}?date=${dateUrl}`} component={FlightsList} />
+      <Route path="/departure" component={FlightsList} />
+      <Route path="/arrival" component={FlightsList} />
+    </BrowserRouter>
   );
 };
-
-export default FlightsBoard;
+const mapState = state => ({
+  dateUrl: dateUrlSelector(state),
+  typeUrl: typeUrlSelector(state),
+});
+export default connect(mapState)(FlightsBoard);
