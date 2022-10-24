@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import flightsReducer from './flights.reducer';
+import flightsReducer from './flights/flights.reducer';
 
 const logger = store => next => action => {
   console.group(action.type);

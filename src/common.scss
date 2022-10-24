@@ -1,11 +1,11 @@
 .main {
   display: flex;
+  // justify-content:flex-start;
   flex-direction: column;
   background: #e7efec;
+  min-height: 100vh;
 }
 .container {
   margin: 0 auto;
-  width: 980px;
-  display: flex;
-  flex-direction: column;
+  flex: 1 1;
 }

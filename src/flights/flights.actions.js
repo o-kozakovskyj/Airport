@@ -1,4 +1,4 @@
-import fetchFlightsList from './gateway/flights';
+import fetchFlightsList from '../gateway/flights';
 
 export const FLIGHTS_LOADED = 'FLGHTS_LOADED';
 export const FLGHTS_DATE_URL = 'FLGHTS_DATE_URL';

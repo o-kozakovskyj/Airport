@@ -8,7 +8,7 @@ import ActionDate from '../date/ActionDate';
 import { dateUrlSelector, typeUrlSelector } from '../../flights.selectors';
 
 const FlightsBoard = ({ dateUrl, typeUrl }) => {
-  console.log(1);
+  const activeBtnStyle = typeUrl === 'departure' ? 3 : 1;
   return (
     <BrowserRouter>
       <Search />
@@ -16,16 +16,12 @@ const FlightsBoard = ({ dateUrl, typeUrl }) => {
         <Link
           className="board__btn board__departures"
           to={`/departure?date=${dateUrl}`}
-          style={{ zIndex: '1' }}
+          style={{ zIndex: activeBtnStyle }}
         >
           <i className="fas fa-plane-departure board__icon"></i>
           <span>Departures</span>
         </Link>
-        <Link
-          className="board__btn board__arrivals"
-          to={`/arrival?date=${dateUrl}`}
-          style={{ zIndex: '2' }}
-        >
+        <Link className="board__btn board__arrivals" to={`/arrival?date=${dateUrl}`}>
           <i className="fas fa-plane-arrival board__icon"></i>
           <span>Arrivals</span>
         </Link>

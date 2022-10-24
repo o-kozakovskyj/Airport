@@ -1,12 +1,19 @@
+td,
+th {
+  padding: 0;
+  text-align: center;
+}
+
 .flights-table {
-  padding-top: 40px;
-  margin: 0 48px;
+  width: 902px;
+  margin: 0 48px 48px 48px;
   background-color: #fff;
   font-size: 18px;
   line-height: 40px;
-  padding: 16px 10px;
+  padding: 26px 0px;
+  border-spacing: 10px;
   border-collapse: collapse;
-  min-height: 100vh;
+
   &__header {
     color: #95989a;
     display: table-cell;
@@ -17,13 +24,18 @@
   }
 
   &__row-item {
-    font-size: 18px;
-    text-align: center;
-    border-spacing: 0;
-    border-collapse: collapse;
+    
   }
+
   &__row:hover {
     box-shadow: 1px 1px 3px 3px #55989a;
+  }
+
+  &__row:hover .flights-table__hidden {
+    opacity: 1;
+    color: #1eb7ee;
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   &__terminal-box {
@@ -34,29 +46,33 @@
     height: 36px;
     border: 1px solid;
     border-radius: 50%;
-    font-weight:900;
-    margin-left: 20px;
+    font-weight: 900;
+    margin: 0 0 0 20px;
   }
 
   &__row:nth-child(2n+1) {
     width: 100%;
     background-color: rgba(30, 183, 238, 0.1);
-    ;
   }
 
   &__logo {
     display: flex;
-    height: 40px;
+    height: 60px;
   }
 
   &__img {
-    height: 100%;
-    width: 95%;
+    height: 90%;
+    width: 90%;
   }
+
   &__not-found {
     text-align: center;
-   padding-top: 80px;
+    padding-top: 80px;
     font-size: 48px;
     color: #95989a;
+  }
+
+  &__hidden {
+    opacity: 0;
   }
 }
