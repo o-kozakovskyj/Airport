@@ -18,6 +18,7 @@ const Flight = ({ ...flight }) => {
   //   console.log(flightToFind);
   //   return null;
   // }
+
   return (
     <tr className="flights-table__row">
       <td className="flights-table__row-item ">
@@ -30,9 +31,9 @@ const Flight = ({ ...flight }) => {
       <td className="flights-table__row-item">{flightStatus}</td>
       <td className="flights-table__row-item flights-table__logo">
         <div className="flights-table__img-box">
-          <img src={airline.en.logoName} alt="Logo" className="flights-table__img" />
+          <img src={airline.en.logoSmallName} alt="Logo" className="flights-table__img" />
         </div>
-        <span>{airline.en.name}</span>
+        <span className="flights-table__txt">{airline.en.name}</span>
       </td>
       <td className="flights-table__row-item">{codeShare}</td>
       <td className="flights-table__row-item flights-table__hidden">Detais</td>

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   padding-top: 30px;
-  
+
   &__btn {
     font-size: 24px;
     color: #1eb7ee;
@@ -10,7 +10,9 @@
     border: none;
     text-align: center;
     text-decoration: none;
+    
   }
+
 
   &__icon {
     margin-right: 16px;
@@ -21,11 +23,11 @@
     transform: translateX(50px);
     border-radius: 80px 80px 0 0;
     padding-right: 100px;
-    color: #1eb7ee;
-    background-color: #fff;
+    color: #fff;
+    background-color: #1eb7ee;
     font-size: 24px;
     line-height: 60px;
-    
+
     position: relative;
   }
 
@@ -44,3 +46,7 @@
   }
 }
 
+.board__btn-active {
+  color: #1eb7ee;
+  background-color: #fff;
+}

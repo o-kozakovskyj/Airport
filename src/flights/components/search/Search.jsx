@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './search.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { dateUrlSelector, typeUrlSelector } from '../../flights.selectors';
+import { dateUrlSelector, searchParamsSelector, typeUrlSelector } from '../../flights.selectors';
+import * as flightActions from '../../flights.actions';
 
-const Search = ({ dateUrl, typeUrl }) => {
-  const [searchParams, setSearchParams] = useState('');
+const Search = ({ dateUrl, typeUrl, searchParams, flightsSearchParams }) => {
+  const [params, setParams] = useState(searchParams);
   return (
     <div className="search">
       <h2 className="search__title">Search flight</h2>
@@ -13,15 +14,16 @@ const Search = ({ dateUrl, typeUrl }) => {
         <i className="fas fa-search search__icon"></i>
         <form className="search__form">
           <input
-            onChange={e => setSearchParams(e.target.value)}
-            value={searchParams}
+            value={params}
             type="text"
             placeholder="Airline, destination or flight #"
             className="search__input"
+            onChange={e => setParams(e.target.value)}
           ></input>
           <Link
             className="search__button"
-            to={`/${typeUrl}?date=${dateUrl}${searchParams ? `&search=${searchParams}` : ''}`}
+            to={`/${typeUrl}?date=${dateUrl}${params ? `&search=${params}` : ''}`}
+            onClick={() => flightsSearchParams(params)}
           >
             Search
           </Link>
@@ -33,5 +35,9 @@ const Search = ({ dateUrl, typeUrl }) => {
 const mapState = state => ({
   dateUrl: dateUrlSelector(state),
   typeUrl: typeUrlSelector(state),
+  searchParams: searchParamsSelector(state),
 });
-export default connect(mapState)(Search);
+const mapDispatch = {
+  flightsSearchParams: flightActions.flightsSearchParams,
+};
+export default connect(mapState, mapDispatch)(Search);

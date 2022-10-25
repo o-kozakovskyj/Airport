@@ -1,28 +1,29 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getFlightsList } from '../../flights.actions';
-import { dateUrlSelector, flightsListSelector } from '../../flights.selectors';
+import {
+  dateUrlSelector,
+  flightsListSelector,
+  typeUrlSelector,
+  flightSelector,
+  searchParamsSelector,
+} from '../../flights.selectors';
 import Flight from '../flight/Flight';
 import './flightsList.scss';
 
-const FlightsList = ({ getFlights, match, flightsList, dateUrl }) => {
-  // if (window.location.href.includes('search')) {
-  //   const flightToFind = window.location.href.split('search')[1].replace('=', '', 1);
-  //   const flightsToDisplay = flightsList.find(flight => {
-  //     const flightNumber = `${flight.airline.en.logoName}${flight.airline.en.name}`;
-  //     if (flightNumber === flightToFind) {
-  //       return <Flight {...flight} key={flight.ID} />
-  //     }
-  //   }
-
-  // } else {
-
-  // }
-
+const FlightsList = ({ getFlights, flightsList, dateUrl, typeUrl, searchFlight, searchParams }) => {
   useEffect(() => {
-    getFlights(match.url.replace('/', '', 1), dateUrl);
-  }, [dateUrl, match.url]);
-  if (flightsList.length === 0) {
+    getFlights(typeUrl, dateUrl);
+  }, [dateUrl, typeUrl]);
+  const flightsToShow =
+    searchParams === ''
+      ? flightsList.map(flight => <Flight {...flight} key={flight.ID} />)
+      : searchFlight && <Flight {...searchFlight} />;
+
+  if (!flightsToShow) {
+    return <div className="flights-table flights-table__not-found">No flights</div>;
+  }
+  if (flightsToShow.length === 0) {
     return <div className="flights-table flights-table__not-found">No flights</div>;
   }
   return (
@@ -38,11 +39,7 @@ const FlightsList = ({ getFlights, match, flightsList, dateUrl }) => {
           <th className="flights-table__header flights-table__hidden">Details</th>
         </tr>
       </thead>
-      <tbody>
-        {flightsList.map(flight => (
-          <Flight {...flight} key={flight.ID} />
-        ))}
-      </tbody>
+      <tbody>{flightsToShow}</tbody>
     </table>
   );
 };
@@ -50,6 +47,9 @@ const FlightsList = ({ getFlights, match, flightsList, dateUrl }) => {
 const mapState = state => ({
   flightsList: flightsListSelector(state),
   dateUrl: dateUrlSelector(state),
+  typeUrl: typeUrlSelector(state),
+  searchParams: searchParamsSelector(state),
+  searchFlight: flightSelector(state),
 });
 const mapDispatch = {
   getFlights: getFlightsList,

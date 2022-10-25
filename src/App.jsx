@@ -1,6 +1,7 @@
 import React from 'react';
 import './common.scss';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import store from './store';
@@ -9,13 +10,15 @@ import FlightsBoard from './flights/components/flightsBoard/FlightsBoard';
 
 const App = () => (
   <Provider store={store}>
-    <div className="main">
-      <Header />
-      <div className="container">
-        <FlightsBoard />
+    <BrowserRouter>
+      <div className="main">
+        <Header />
+        <div className="container">
+          <FlightsBoard />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </BrowserRouter>
   </Provider>
 );
 

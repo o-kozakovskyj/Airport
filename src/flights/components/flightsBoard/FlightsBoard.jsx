@@ -1,27 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './flightsBoard.scss';
-import { BrowserRouter, Link, Route, Redirect } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 import FlightsList from '../FlightsList/FlightsList';
 import Search from '../search/Search';
 import ActionDate from '../date/ActionDate';
 import { dateUrlSelector, typeUrlSelector } from '../../flights.selectors';
+import * as flightsActions from '../../flights.actions';
 
-const FlightsBoard = ({ dateUrl, typeUrl }) => {
-  const activeBtnStyle = typeUrl === 'departure' ? 3 : 1;
+const FlightsBoard = ({ dateUrl, typeUrl, flightsTypeUrl }) => {
+  let activeBtnZIndex;
+  let departureClass;
+  let arriveClass;
+  if (typeUrl === 'departure') {
+    departureClass = 'board__btn board__departures board__btn-active';
+    arriveClass = 'board__btn board__arrivals';
+    activeBtnZIndex = 3;
+  } else {
+    departureClass = 'board__btn board__departures';
+    arriveClass = 'board__btn board__arrivals board__btn-active';
+    activeBtnZIndex = 1;
+  }
   return (
-    <BrowserRouter>
+    <>
       <Search />
       <div className="board">
         <Link
-          className="board__btn board__departures"
+          className={departureClass}
           to={`/departure?date=${dateUrl}`}
-          style={{ zIndex: activeBtnStyle }}
+          style={{ zIndex: activeBtnZIndex }}
+          onClick={() => flightsTypeUrl('departure')}
         >
           <i className="fas fa-plane-departure board__icon"></i>
           <span>Departures</span>
         </Link>
-        <Link className="board__btn board__arrivals" to={`/arrival?date=${dateUrl}`}>
+        <Link
+          className={arriveClass}
+          to={`/arrival?date=${dateUrl}`}
+          onClick={() => flightsTypeUrl('arrival')}
+        >
           <i className="fas fa-plane-arrival board__icon"></i>
           <span>Arrivals</span>
         </Link>
@@ -30,11 +47,14 @@ const FlightsBoard = ({ dateUrl, typeUrl }) => {
       <Redirect to={`/${typeUrl}?date=${dateUrl}`} component={FlightsList} />
       <Route path="/departure" component={FlightsList} />
       <Route path="/arrival" component={FlightsList} />
-    </BrowserRouter>
+    </>
   );
 };
 const mapState = state => ({
   dateUrl: dateUrlSelector(state),
   typeUrl: typeUrlSelector(state),
 });
-export default connect(mapState)(FlightsBoard);
+const mapDispatch = {
+  flightsTypeUrl: flightsActions.flightsTypeUrl,
+};
+export default connect(mapState, mapDispatch)(FlightsBoard);
