@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import './flightsBoard.scss';
 import { Link, Route, Redirect } from 'react-router-dom';
 import FlightsList from '../FlightsList/FlightsList';
@@ -56,5 +58,14 @@ const mapState = state => ({
 });
 const mapDispatch = {
   flightsTypeUrl: flightsActions.flightsTypeUrl,
+};
+FlightsBoard.propTypes = {
+  flightsTypeUrl: PropTypes.func.isRequired,
+  dateUrl: PropTypes.string,
+  typeUrl: PropTypes.string,
+};
+FlightsBoard.defaultValue = {
+  dateUrl: moment().format('MM-DD'),
+  typeUrl: 'departure',
 };
 export default connect(mapState, mapDispatch)(FlightsBoard);

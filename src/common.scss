@@ -1,8 +1,9 @@
+@import'./sassStyles/variables.scss';
+
 .main {
   display: flex;
-  // justify-content:flex-start;
   flex-direction: column;
-  background: #e7efec;
+  background: $mainGrey;
   min-height: 100vh;
 }
 .container {

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import { getFlightsList } from '../../flights.actions';
 import {
   dateUrlSelector,
@@ -20,10 +22,7 @@ const FlightsList = ({ getFlights, flightsList, dateUrl, typeUrl, searchFlight, 
       ? flightsList.map(flight => <Flight {...flight} key={flight.ID} />)
       : searchFlight && <Flight {...searchFlight} />;
 
-  if (!flightsToShow) {
-    return <div className="flights-table flights-table__not-found">No flights</div>;
-  }
-  if (flightsToShow.length === 0) {
+  if (!flightsToShow || flightsToShow.length === 0) {
     return <div className="flights-table flights-table__not-found">No flights</div>;
   }
   return (
@@ -54,5 +53,18 @@ const mapState = state => ({
 const mapDispatch = {
   getFlights: getFlightsList,
 };
-
+FlightsList.propTypes = {
+  getFlights: PropTypes.func.isRequired,
+  flightsList: PropTypes.arrayOf(PropTypes.shape()),
+  searchFlight: PropTypes.shape(),
+  dateUrl: PropTypes.string,
+  typeUrl: PropTypes.string,
+  searchParams: PropTypes.string,
+};
+FlightsList.defaultValue = {
+  dateUrl: moment().format('MM-DD'),
+  typeUrl: 'departure',
+  searchParams: '',
+  searchFlight: null,
+};
 export default connect(mapState, mapDispatch)(FlightsList);

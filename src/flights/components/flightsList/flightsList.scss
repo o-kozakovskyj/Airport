@@ -1,3 +1,5 @@
+@import'../../../sassStyles/variables.scss';
+
 td,
 th {
   padding: 0;
@@ -7,19 +9,18 @@ th {
 .flights-table {
   width: 902px;
   margin: 0 48px 48px 48px;
-  background-color: #fff;
+  background-color: $mainWhite;
   font-size: 18px;
-
   padding: 26px 0px;
   border-spacing: 10px;
   border-collapse: collapse;
 
   &__header {
-    color: #95989a;
     display: table-cell;
-    font-size: 16px;
-    text-align: center;
+    color: $tableHeader;
     vertical-align: bottom;
+    text-align: center;
+    font-size: 16px;
     padding: 12px;
   }
 
@@ -29,7 +30,7 @@ th {
 
   &__row:hover .flights-table__hidden {
     opacity: 1;
-    color: #1eb7ee;
+    color: $mainBlue;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -71,7 +72,7 @@ th {
     text-align: center;
     padding-top: 80px;
     font-size: 48px;
-    color: #95989a;
+    color: $tableHeader;
   }
 
   &__hidden {

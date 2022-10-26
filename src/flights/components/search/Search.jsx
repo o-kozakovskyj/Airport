@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './search.scss';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { dateUrlSelector, searchParamsSelector, typeUrlSelector } from '../../flights.selectors';
@@ -39,5 +41,16 @@ const mapState = state => ({
 });
 const mapDispatch = {
   flightsSearchParams: flightActions.flightsSearchParams,
+};
+Search.propTypes = {
+  flightsSearchParams: PropTypes.func.isRequired,
+  dateUrl: PropTypes.string,
+  typeUrl: PropTypes.string,
+  searchParams: PropTypes.string,
+};
+Search.defaultValue = {
+  dateUrl: moment().format('MM-DD'),
+  typeUrl: 'departure',
+  searchParams: '',
 };
 export default connect(mapState, mapDispatch)(Search);

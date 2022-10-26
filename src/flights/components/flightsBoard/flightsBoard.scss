@@ -1,3 +1,5 @@
+@import'../../../sassStyles/variables.scss';
+
 .board {
   display: flex;
   justify-content: center;
@@ -5,8 +7,8 @@
 
   &__btn {
     font-size: 24px;
-    color: #1eb7ee;
-    background-color: #fff;
+    color: $mainBlue;
+    background-color: $mainWhite;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -23,8 +25,8 @@
     transform: translateX(50px);
     border-radius: 80px 80px 0 0;
     padding-right: 100px;
-    color: #fff;
-    background-color: #1eb7ee;
+    color: $mainWhite;
+    background-color: $mainBlue;
     font-size: 24px;
     line-height: 60px;
 
@@ -36,8 +38,8 @@
     overflow: hidden;
     transform: translateX(-50px);
     width: 500px;
-    color: #fff;
-    background-color: #1eb7ee;
+    color: $mainWhite;
+    background-color: $mainBlue;
     border-radius: 80px 80px 0 0;
     position: relative;
     font-size: 24px;
@@ -47,6 +49,6 @@
 }
 
 .board__btn-active {
-  color: #1eb7ee;
-  background-color: #fff;
+  color: $mainBlue;
+  background-color: $mainWhite;
 }
