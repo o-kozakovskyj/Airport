@@ -12,25 +12,26 @@ const Footer = () => (
       <li className="footer__forPassangers-item">Feedback form</li>
     </ul>
     <ul className="footer__corporate footer__list">
-      <h3>For passengers</h3>
-      <li className="footer__corporate-item">Flight schedule</li>
+      <h3>Corporate</h3>
+      <li className="footer__corporate-item">Main page</li>
       <li className="footer__corporate-item">Services</li>
-      <li className="footer__corporate-item">Contacts</li>
-      <li className="footer__corporate-item">Privacy policy</li>
-      <li className="footer__corporate-item">Feedback form</li>
+      <li className="footer__corporate-item">Ground Handling</li>
+      <li className="footer__corporate-item">Airport characteristics</li>
+      <li className="footer__corporate-item">Education Center</li>
+      <li className="footer__corporate-item">Careers</li>
     </ul>
     <ul className="footer__Press centre footer__list">
-      <h3>For passengers</h3>
-      <li className="footer__Press centre-item">Flight schedule</li>
-      <li className="footer__Press centre-item">Services</li>
-      <li className="footer__Press centre-item">Contacts</li>
-      <li className="footer__Press centre-item">Privacy policy</li>
-      <li className="footer__Press centre-item">Feedback form</li>
+      <h3>Press centre</h3>
+      <li className="footer__Press centre-item">Main page</li>
+      <li className="footer__Press centre-item">Latests News</li>
+      <li className="footer__Press centre-item">Social & Art Projects</li>
+      <li className="footer__Press centre-item">Financial reports</li>
+      <li className="footer__Press centre-item">Traffic statistics</li>
     </ul>
     <div className="footer__contacts">
-      <div className="footer__contacts-title">Contact us</div>
-      <div className="footer__contacts-phone">+38(044)5004973</div>
-      <div className="footer__contacts-title">Follow us</div>
+      <h3>Contact us</h3>
+      <div className="footer__contacts-phone">+38(044)500-49-73</div>
+      <h3 className="footer__contacts-title">Follow us</h3>
       <div className="footer__contacts-socials"></div>
     </div>
   </div>

@@ -8,9 +8,10 @@
 - [Flexbox](https://en.wikipedia.org/wiki/CSS_Flexible_Box_Layout)
 - [Sass (Scss)](https://sass-lang.com)
 - [BEM methodology](https://en.bem.info/methodology)
-- [Babel](https://https://babeljs.io)
+- [Babel](https://babeljs.io)
 - [webpack](https://webpack.js.org)
-- [React](https://https://reactjs.org)
+- [React](https://reactjs.org)
+- [Redux](https://redux.js.org)
 ### Author
 Kozakovskyj Oleksij
 # Airport

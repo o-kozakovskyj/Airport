@@ -1,6 +1,6 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 const Flight = ({ ...flight }) => {
   const { actual, status, term, timeDepFact, timeArrShedule } = flight;
@@ -12,13 +12,6 @@ const Flight = ({ ...flight }) => {
     status === 'DP'
       ? `Depature at ${moment(timeDepFact).format('H:mm')}`
       : `Arrive at ${moment(timeArrShedule).format('H:mm')}`;
-  // const flightToFind = '7B2101';
-  // const flightNumber = codeShare;
-  // if (flightToFind && flightNumber !== flightToFind) {
-  //   console.log(flightToFind);
-  //   return null;
-  // }
-
   return (
     <tr className="flights-table__row">
       <td className="flights-table__row-item ">
@@ -40,5 +33,10 @@ const Flight = ({ ...flight }) => {
     </tr>
   );
 };
-
+Flight.propTypes = {
+  flight: PropTypes.shape(),
+};
+Flight.defaultValue = {
+  flight: {},
+};
 export default Flight;

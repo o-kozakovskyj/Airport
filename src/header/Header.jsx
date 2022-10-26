@@ -4,8 +4,8 @@ import React from 'react';
 const Header = () => (
   <div className="header">
     <div className="logo">
-      <i className="far fa-paper-plane logo__img"></i>
-      Kyiv Airport
+      <span className="logo__title">Kyiv</span>
+      <span className="logo__subtitle">Sykorsky Airport</span>
     </div>
     <nav className="header__nav">
       <ul className="header__nav-list">
@@ -15,6 +15,7 @@ const Header = () => (
         <li className="header__nav-list-item">Press Room</li>
       </ul>
     </nav>
+    <div className="header__language-box">En</div>
   </div>
 );
 export default Header;
