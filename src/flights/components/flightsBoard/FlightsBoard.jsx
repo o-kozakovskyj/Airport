@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './flightsBoard.scss';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Link, Route, Redirect, useHistory } from 'react-router-dom';
 import FlightsList from '../FlightsList/FlightsList';
 import Search from '../search/Search';
 import ActionDate from '../date/ActionDate';
@@ -21,6 +21,8 @@ const FlightsBoard = ({ dateUrl, typeUrl, flightsTypeUrl }) => {
     arriveClass = 'board__btn board__arrivals board__btn-active';
     activeBtnZIndex = 1;
   }
+  const history = useHistory();
+  console.log(history);
   return (
     <>
       <Search />
