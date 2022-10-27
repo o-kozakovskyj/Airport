@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import './flightsBoard.scss';
 import { Link, Route, Redirect } from 'react-router-dom';
-import FlightsList from '../FlightsList/FlightsList';
+import FlightsList from '../flightsList/FlightsList';
 import Search from '../search/Search';
 import DateSearch from '../dateSearch/DateSearch';
 import { dateUrlSelector, typeUrlSelector } from '../../flights.selectors';
