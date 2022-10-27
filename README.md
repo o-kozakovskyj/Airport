@@ -1,5 +1,5 @@
 # AIRPORT
-[![Netlify Status](https://api.netlify.com/api/v1/badges/13f2320f-b1c7-4eab-b8ef-fed156af79a5/deploy-status)](https://app.netlify.com/sites/airportkyiv/deploys)
+### [Site link](https://airportkyiv.netlify.app/)
 -Layout supports all mobile and desktop versions
 
 ### The tech stack is:
